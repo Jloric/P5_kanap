@@ -20,9 +20,11 @@ fetch ("http://localhost:3000/api/products")
             k=jsonListOfKanap[jsonKanap];
             let kanap = new Kanap(k);
             url=addId(kanap);
-            document.getElementById('items').innerHTML += '<a href="./product.html?'+url+'"><article><img src="'+kanap.imageUrl+'" alt="'+kanap.altTxt+'"><h3 class="productName"> '+kanap.name+' </h3><p class="productDescription">'+ kanap.description+' </p></article></a>';
+            let newDom="";
+            newDom += '<a href="./product.html?'+url+'"><article><img src="'+kanap.imageUrl+'" alt="'+kanap.altTxt+'"><h3 class="productName"> '+kanap.name+' </h3><p class="productDescription">'+ kanap.description+' </p></article></a>'; 
             url=removeId();
         }
+        document.getElementById('items').innerHTML=newDom;
        
     })
     .catch (function(err) {
